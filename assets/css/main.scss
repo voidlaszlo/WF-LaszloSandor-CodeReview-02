@@ -1,3 +1,224 @@
+// MIXINS
+@mixin border-radius($radius) {
+	border-radius: $radius;
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+}
+
+
 body {
     margin: 0; padding: 0;
+    background-color: lightgrey;
+}
+
+// HEADER
+header {
+
+    nav.navbar {
+
+        div.navbar-top {
+            padding: 1em;
+            background-color: rgb(255, 234, 234);
+
+            // FLEX
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+
+        ul.list {
+            padding: 0.5em;
+            margin: 0;
+            background-color: maroon;
+
+            li.list-item {
+                display: inline-block;
+
+                a, a:link, a:visited {
+                    text-decoration: none;
+                    color: white;
+                    padding: 0 1em;
+                }
+            }
+        }
+    }
+}
+
+// SECTION CALC-CONTAINER
+section.calc-container {
+    
+    div.hero {
+        height: 500px;
+        margin-bottom: 40px;
+        background: url("../../img/traffic-332857_1920.jpg");
+        background-size: cover;
+        background-position: center;
+
+        h1 {
+            margin: 0;
+            color: white;
+            padding: 1em;
+        }
+    }
+
+    div.calc-box {
+        margin: 0 auto;
+        margin-top: -475px;
+        height: 550px;
+        width: 80%;
+        background-color: rgba(255, 255, 255, 0.7);
+        border: 2px solid grey;
+
+        h2 {
+            text-align: center;
+            font-size: 3em;
+            color: rgb(29, 29, 29);
+            margin: 0;
+            margin-top: 0.5em;
+        }
+
+        form {
+            padding: 2em;
+
+            display: grid;
+            grid-gap: 3em;
+            grid-template-columns: 1fr 1fr;
+
+            div.field {
+
+                label {
+                    display: block;
+                }
+                
+                input {
+                    width: 100%;
+                    height: 50px;
+                }
+
+                select {
+                    width: 100%;
+                    height: 50px;
+                }
+            }
+
+            button#calcBtn {
+                grid-column: 1/3;
+                width: 30%;
+                border-radius: 15px;
+                background-color: green;
+                color: white;
+                font-size: 2em;
+                padding: 0 0.25em;
+                border: 0;
+                margin: 0 auto;                
+            }
+
+            p#priceOutput {
+                grid-column: 1/3;
+                font-size: 2em;
+                margin: 0;
+                text-align: center;
+                color: green;
+            }
+        }
+    }
+
+    div.hero-message {
+        text-align: center;
+        font-size: 1.8em;
+        width: 80%;
+        margin: 0 auto;
+
+        h3 {
+            margin-bottom: 0;
+        }
+
+        p {
+            margin-top: 5px;
+        }
+    }
+
+}
+
+section.options {
+    background-color: white;
+    padding: 2em;
+
+    //GRID
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 7em;
+
+    div.card {
+        background-color: white;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        border-top: 2px solid black;
+        padding: 1em;
+
+        h3 {
+            margin: 0;
+            color: rgb(107, 192, 221);
+            font-weight: 400;
+            font-size: 1.4em;
+        }
+
+        h4 {
+            margin: 0;
+        }
+
+        small {
+            color: grey;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0.5em;
+
+            li {
+                margin-bottom: 0.5em;
+
+                &::before {
+                    content: "\2714\0020";
+                    margin-right: 5px;
+                    display: inline-block;
+                    color: rgb(107, 192, 221);
+                }
+            }
+        }
+
+    }
+}
+
+footer {
+    background-color: black;
+    padding: 1em;
+
+    ul.list {
+        margin: 0;
+        padding: 0;
+
+        li.list-item {
+            display: inline-block;
+            a, a:link, a:visited {
+                color: white;
+                text-decoration: none;
+            }
+        }
+    }
+
+    img {
+        display: block;
+        margin: 0 0 0 auto;
+    }
+
+    p {
+        margin: 0;
+        color: white;
+        text-align: center;
+    }
 }

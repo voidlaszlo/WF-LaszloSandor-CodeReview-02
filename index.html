@@ -25,7 +25,40 @@
     <section class="calc-container">
         <div class="hero">
             <h1>Car Insurance</h1>
+            
         </div>
+        <div class="calc-box">
+                <h2>Great coverage begins <br> with a custom quote</h2>
+
+                <form action="send">
+                    <div class="field">
+                            <label for="name">Your name:</label>
+                            <input type="text" name="name" id="name">
+                    </div>
+
+                    <div class="field">
+                            <label for="age">Age:</label>
+                            <input type="number" name="age" id="age">
+                    </div>
+
+                    <div class="field">
+                            <label for="country">Country:</label>
+                            <select name="country" id="country">
+                                <option value="austria">Austria</option>
+                                <option value="hungary">Hungary</option>
+                                <option value="greece">Greece</option>
+                            </select>
+                    </div>
+
+                    <div class="field">
+                            <label for="hp">Horsepower of your car:</label>
+                            <input type="text" name="hp" id="hp">
+                    </div>
+                    <button id="calcBtn">Calculate</button>
+                    <p id="priceOutput">Printed calculation goes here</p>
+                </form>
+        </div>
+
         <div class="hero-message">
             <h3>Un-complicating car coverage</h3>
             <p>Understanding your coverage options shouldn't be so hard. We'll guide you through avaliable coverage types, starting with who and what is covered</p>
@@ -33,7 +66,7 @@
     </section>
 
     <section class="options">
-        
+
         <div class="card">
             <h3>What comes standard</h3>
             <p>The coverage you need</p>
