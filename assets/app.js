@@ -4,11 +4,10 @@ let priceOutput = document.getElementById('priceOutput')
 
 calcBtn.addEventListener('click', (e) => {
     calculateInsurance()
-
     e.preventDefault()
 })
 
-function getListeners() {
+function calculateInsurance() {
     let age = document.getElementById('age').value
     let hp = document.getElementById('hp').value
     let country = document.getElementById('country').value
@@ -17,12 +16,19 @@ function getListeners() {
 
     switch(country) {
 
-        case "Austria":
+        case "austria":
             insurance = (hp*100/age + 50)
-            console.log(insurance)
+            priceOutput.textContent = `You have to pay ${insurance.toFixed(2)} euros.`
+            break
+        
+        case "hungary":
+            insurance = (hp*120/age + 100)
+            priceOutput.textContent = `You have to pay ${insurance.toFixed(2)} euros.`
             break
 
-    }
+        case "greece":
+            insurance = (hp*150/(age+3) + 50)
+            priceOutput.textContent = `You have to pay ${insurance.toFixed(2)} euros.`
+            break
 
-    console.log(age, hp, country)
-}
+    }}
