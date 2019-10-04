@@ -2,18 +2,22 @@
 const calcBtn = document.getElementById('calcBtn')
 let priceOutput = document.getElementById('priceOutput')
 
+// LISTENERS
 calcBtn.addEventListener('click', (e) => {
     calculateInsurance()
     e.preventDefault()
 })
 
+// FUNCTIONS
 function calculateInsurance() {
+    // SELECTING INPUT VALUES
     let age = document.getElementById('age').value
     let hp = document.getElementById('hp').value
     let country = document.getElementById('country').value
 
     let insurance
 
+    // CHECKING THE COUNTRY INPUT VALUE WITH A SWITCH
     switch(country) {
 
         case "austria":
@@ -31,4 +35,5 @@ function calculateInsurance() {
             priceOutput.textContent = `You have to pay ${insurance.toFixed(2)} euros.`
             break
 
-    }}
+    }
+}
