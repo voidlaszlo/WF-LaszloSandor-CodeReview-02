@@ -53,7 +53,7 @@ header nav.navbar ul.list li.list-item a, header nav.navbar ul.list li.list-item
 section.calc-container div.hero {
   height: 500px;
   margin-bottom: 40px;
-  background: url("../../img/traffic-332857_1920.jpg");
+  background: url("../img/traffic-332857_1920.jpg");
   background-size: cover;
   background-position: center;
 }
