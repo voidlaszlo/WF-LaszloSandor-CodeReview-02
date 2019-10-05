@@ -103,7 +103,7 @@ section.calc-container {
             }
         }
 
-        form {
+        div#form {
             padding: 2em;
 
             display: grid;
@@ -206,6 +206,10 @@ section.options {
 
         @media screen and (max-width: 768px) {
             margin: 1em 0;
+        }
+
+        @media screen and (min-width: 2000px) {
+            margin: 1em 15em;
         }
 
         h3 {

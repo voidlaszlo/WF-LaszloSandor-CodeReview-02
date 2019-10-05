@@ -1,40 +1,95 @@
-// SELECTORS
-const calcBtn = document.getElementById('calcBtn')
-let priceOutput = document.getElementById('priceOutput')
+class Insurance {
+    constructor(name, age, country, hp) {
+        this.name = name
+        this.age = age
+        this.country = country
+        this.hp = hp
+    }
+}
 
-// LISTENERS
-calcBtn.addEventListener('click', (e) => {
-    calculateInsurance()
-    e.preventDefault()
-})
+class InsuranceContainer {
+    constructor() {
+        this.insurances = []
+    }
 
-// FUNCTIONS
-function calculateInsurance() {
-    // SELECTING INPUT VALUES
-    let age = parseInt(document.getElementById('age').value)
-    let hp = document.getElementById('hp').value
-    let country = document.getElementById('country').value
-    let name = document.getElementById('name').value
+    addInsurance(insurance){
+        this.insurances.push(insurance)
+    }
+}
 
-    let insurance
+class InsuranceInputManager {
+    constructor(){}
 
-    // CHECKING THE COUNTRY INPUT VALUE WITH A SWITCH
-    switch(country) {
+    getInsurance() {
+        return new Insurance(
+            
+            document.getElementById('name').value,
+            parseInt(document.getElementById('age').value),
+            document.getElementById('country').value,
+            parseInt(document.getElementById('hp').value)       
 
-        case "austria":
-            insurance = hp*100/age + 50
-            priceOutput.textContent = `${name}, you have to pay ${insurance.toFixed(2)} euros.`
-            break
-        
-        case "hungary":
-            insurance = hp*120/age + 100
-            priceOutput.textContent = `${name}, you have to pay ${insurance.toFixed(2)} euros.`
-            break
+        )
+    }
 
-        case "greece":
-            insurance = hp*150/(age+3) + 50
-            priceOutput.textContent = `${name}, you have to pay ${insurance.toFixed(2)} euros.`
-            break
+    clearInputs() {
+
+        document.getElementById('name').value = ""
+        document.getElementById('age').value = ""
+        document.getElementById('country').value = ""
+        document.getElementById('hp').value = ""
 
     }
 }
+
+class InsuranceManager {
+    constructor() {
+        this.insuranceContainer = new InsuranceContainer()
+        this.insuranceInputManager = new InsuranceInputManager()
+        this.registerEventListeners()
+    }
+
+    registerEventListeners() {
+        document.getElementById('calcBtn').addEventListener('click', (e) => {
+            let insurance = this.insuranceInputManager.getInsurance()
+            this.insuranceInputManager.clearInputs()
+            this.insuranceContainer.addInsurance(insurance)
+            this.calculateInsurance()         
+            e.preventDefault()
+        })
+    }
+
+    calculateInsurance() {
+        let country = this.insuranceContainer.insurances[this.insuranceContainer.insurances.length-1].country
+        let hp = this.insuranceContainer.insurances[this.insuranceContainer.insurances.length-1].hp
+        let age = this.insuranceContainer.insurances[this.insuranceContainer.insurances.length-1].age
+        let insurance
+    
+        // CHECKING THE COUNTRY INPUT VALUE WITH A SWITCH
+        switch(country) {
+    
+            case "austria":
+                insurance = hp*100/age + 50
+                break
+            
+            case "hungary":
+                insurance = hp*120/age + 100
+                break
+    
+            case "greece":
+                insurance = hp*150/(age+3) + 50
+                break
+    
+        }
+
+        this.render(insurance)
+
+    }
+
+    render(insurance) {
+        let output = document.getElementById('priceOutput')
+        let name = this.insuranceContainer.insurances[this.insuranceContainer.insurances.length-1].name
+        output.textContent = `${name}, you have to pay ${insurance.toFixed(2)} euros.`
+    }
+}
+
+const insuranceManager = new InsuranceManager()
