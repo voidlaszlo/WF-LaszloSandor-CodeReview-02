@@ -1,5 +1,6 @@
 class Insurance {
     constructor(name, age, country, hp) {
+        this.created = new Date()
         this.name = name
         this.age = age
         this.country = country
@@ -35,7 +36,6 @@ class InsuranceInputManager {
 
         document.getElementById('name').value = ""
         document.getElementById('age').value = ""
-        document.getElementById('country').value = ""
         document.getElementById('hp').value = ""
 
     }
@@ -87,6 +87,7 @@ class InsuranceManager {
 
     render(insurance) {
         let output = document.getElementById('priceOutput')
+        output.style.opacity = "1"
         let name = this.insuranceContainer.insurances[this.insuranceContainer.insurances.length-1].name
         output.textContent = `${name}, you have to pay ${insurance.toFixed(2)} euros.`
     }

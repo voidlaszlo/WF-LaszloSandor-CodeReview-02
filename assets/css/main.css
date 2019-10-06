@@ -156,6 +156,7 @@ section.calc-container div.calc-box div#form p#priceOutput {
   margin: 0;
   text-align: center;
   color: green;
+  opacity: 0;
 }
 
 @media screen and (max-width: 768px) {
